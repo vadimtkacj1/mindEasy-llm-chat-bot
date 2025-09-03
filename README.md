@@ -46,13 +46,12 @@ _Example therapeutic conversation_
 ## 🚀 Features
 
 -   **Real-time AI Conversations**: Engage in therapeutic conversations with AI powered by multiple model providers
--   **Dynamic Model Selection**: Switch between different AI models (LLaMA, GPT, Claude, etc.) from a dropdown menu during conversations
+-   **Dynamic Model Selection**: Switch between different AI models from a dropdown menu during conversations
 -   **Memory Management**: The AI maintains conversation context with a configurable memory buffer
 -   **Modern UI**: Clean, responsive React interface with Tailwind CSS styling
 -   **TypeScript Support**: Full TypeScript implementation for better development experience
 -   **Error Handling**: Comprehensive error handling on both frontend and backend
 -   **Conversation History**: Messages are timestamped and stored during the session
--   **Multi-Provider Support**: Compatible with Groq, OpenAI, Anthropic, and other AI providers
 
 ## 🛠️ Installation & Setup
 
@@ -180,31 +179,12 @@ python main.py
 
 This will start a simple command-line interface where you can chat with the AI directly and test different models.
 
-## 📡 API Endpoints
-
-The backend provides the following API endpoints:
-
--   `POST /chat` - Send a message to the AI therapist
-
-    -   Request body: `{ "message": "your message here", "model": "optional_model_name" }`
-    -   Response: `{ "response": "AI response", "model_used": "model_name" }`
-
--   `GET /models` - Get list of available AI models
-
-    -   Response: `{ "models": [{"provider": "groq", "name": "llama3-8b-8192", "display_name": "LLaMA 3 8B"}] }`
-
--   `POST /switch-model` - Switch the active AI model
-    -   Request body: `{ "provider": "groq", "model": "llama3-70b-8192" }`
-    -   Response: `{ "status": "success", "current_model": "llama3-70b-8192" }`
-
 ## 🔧 Configuration
 
 ### Backend Configuration
 
 -   **Model Selection**: Users can switch between models using the dropdown in the frontend interface
--   **Memory Length**: Modify `conversational_memory_length` in `main.py` to adjust conversation context length
 -   **System Prompt**: Update the `system_prompt` in `main.py` to change the AI's personality and role
--   **Provider Settings**: Configure different AI providers in the `.env` file and `tools.yaml`
 
 ### Frontend Configuration
 
@@ -239,25 +219,6 @@ MindEasy supports multiple AI model providers:
 -   LLaMA 3 70B (More capable, slower)
 -   Mixtral 8x7B (Good balance)
 
-### OpenAI Models
-
--   GPT-3.5 Turbo (Fast, cost-effective)
--   GPT-4 (Most capable)
--   GPT-4 Turbo (Latest version)
-
-### Anthropic Models
-
--   Claude 3 Sonnet (Balanced performance)
--   Claude 3 Opus (Most capable)
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
 ## 📝 License
 
 This project is open source and available under the [MIT License](LICENSE).
@@ -268,25 +229,3 @@ This project is open source and available under the [MIT License](LICENSE).
 -   **Development Only**: This setup is configured for development. For production, ensure proper security measures, HTTPS, and environment-specific configurations
 -   **Rate Limits**: Be aware of different AI providers' rate limits and implement appropriate throttling if needed
 -   **Model Costs**: Different models have different pricing structures. Monitor usage to control costs
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-1. **Backend won't start**: Ensure your virtual environment is activated and all dependencies are installed
-2. **Frontend can't connect to backend**: Check that the backend is running on the expected port and CORS is properly configured
-3. **API errors**: Verify your AI provider API keys are valid and have sufficient credits
-4. **Model switching fails**: Ensure the selected model is available and properly configured in your environment
-5. **Missing models in dropdown**: Check that the models are properly defined in `tools.yaml` and corresponding API keys are set
-
-### Getting Help
-
-If you encounter any issues, please check the console logs (both browser and terminal) for detailed error messages and create an issue in the repository with the relevant error information.
-
-## 🆕 Recent Updates
-
--   Added support for multiple AI model providers
--   Implemented dynamic model switching during conversations
--   Enhanced UI with model selection dropdown
--   Improved error handling for different AI providers
--   Added model performance and cost information display
